@@ -1,10 +1,16 @@
-const StoreBackend = () =>{
+// components
+import StoreBackendLayout from "../components/layout/storeBackend";
+import Header from "../components/storeBackend/header/header";
 
-    document.title = 'Store Backend'
+const StoreBackend = () => {
 
-    return(
-        <>store-backend</>
-    )
-}
+    document.title = 'Store Backend';
 
-export default StoreBackend
+    return (
+        <StoreBackendLayout
+            header={<Header />}
+        />
+    );
+};
+
+export default StoreBackend;

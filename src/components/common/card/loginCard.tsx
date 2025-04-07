@@ -87,7 +87,7 @@ const LoginCard = () => {
                         >
                             Login
                         </Button>
-                        <Button variant="text" size="large">
+                        <Button variant="text" size="large" disabled>
                             Forget the password
                         </Button>
                     </Box>
