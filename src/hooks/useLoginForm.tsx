@@ -6,6 +6,8 @@ const useLoginForm = () => {
     const [password, setPassword] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false);
 
+    const time = 1000
+
     const handleLogin = (
         onError: (msg: string | null) => void,
         onSuccess?: () => void
@@ -17,15 +19,25 @@ const useLoginForm = () => {
         }
 
         setLoading(true)
-
         setTimeout(() => {
             console.log(`${userName}\n${password}`) // debug log
             setUserName('')
             setPassword('')
             setLoading(false)
             onSuccess && onSuccess()
-        }, 2000)
+        }, time)
 
+    }
+
+    const handleSignOut = (
+        onSuccess?: () => void
+    ) => {
+
+        setLoading(true)
+        setTimeout(() => {
+            onSuccess && onSuccess()
+            setLoading(false)
+        }, time)
     }
 
     return {
@@ -35,6 +47,7 @@ const useLoginForm = () => {
         setUserName,
         setPassword,
         handleLogin,
+        handleSignOut
     }
 }
 

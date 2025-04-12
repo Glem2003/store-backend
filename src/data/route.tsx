@@ -12,10 +12,6 @@ const routes = [
     {
         path: '/store-backend',
         element: <StoreBackend />,
-    },
-    {
-        path: '*',
-        element: <>Error 404</>,
     }
 ]
 

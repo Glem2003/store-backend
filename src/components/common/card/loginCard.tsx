@@ -46,7 +46,7 @@ const LoginCard = () => {
             alignItems="center"
             height="100vh"
         >
-            <Card sx={cardStyle}>
+            <Card sx={cardStyle} raised>
                 <CardContent>
                     <Typography variant='h4' align='center' gutterBottom>
                         Store Backend
