@@ -1,19 +1,24 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { Suspense } from "react"
 
-// data
-import routes from '../data/route'
+// routes
+import { webRoutes } from "../data/route"
+
+const renderRoutes = (routes: any[]) => {
+    return routes.map(({ path, element, index, children }, i) => (
+        <Route key={i} path={path} element={element} index={index}>
+            {children && renderRoutes(children)}
+        </Route>
+    ))
+}
 
 const AppRoute = () => {
+
     return (
         <BrowserRouter>
             <Suspense fallback={<>loading...</>}>
                 <Routes>
-                    {routes.map(({ path, element, index }) => {
-                        return (
-                            <Route path={path} element={element} index={index} />
-                        )
-                    })}
+                    {renderRoutes(webRoutes)}
                 </Routes>
             </Suspense>
         </BrowserRouter>

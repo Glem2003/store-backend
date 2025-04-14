@@ -17,11 +17,11 @@ import { NavListsProp } from "./navList.type";
 
 const NavList: React.FC<NavListsProp> = (props) => {
 
-    const { 
-        title, 
-        list, 
-        selected, 
-        handleListBtn 
+    const {
+        title,
+        list,
+        selected,
+        handleListBtn
     } = props
 
     return (
@@ -32,6 +32,7 @@ const NavList: React.FC<NavListsProp> = (props) => {
                     {title}
                 </ListSubheader>
             }
+            sx={{ width: '100vw' }}
         >
             {list && list.map(({ icon, text, submodule, value }) => {
                 return (

@@ -1,3 +1,5 @@
+import { Outlet } from "react-router-dom";
+
 // hooks
 import useSelectItem from "../hooks/useSelectItem";
 
@@ -11,16 +13,29 @@ import Header from "../components/storeBackend/header/header";
 
 const StoreBackend = () => {
 
-    document.title = 'Store Backend';
-    const { selectedItem, handleSelect, handleChange } = useSelectItem()
+    const {
+        selectedItem,
+        handleSelect,
+        handleChange,
+        handleClose,
+        drawerControl
+    } = useSelectItem()
 
     return (
         <StoreBackendLayout
             header={<Header />}
-            slide={<Slide selected={selectedItem} handleListBtn={handleSelect} onChange={handleChange} />}
+            slide={
+                <Slide
+                    selected={selectedItem}
+                    handleListBtn={handleSelect}
+                    onChange={handleChange}
+                    drawerControl={drawerControl}
+                    BottomNavHandleOnClose={handleClose}
+                />
+            }
             main={
                 <Main>
-                    {selectedItem}
+                    <Outlet />
                 </Main>
             }
         />

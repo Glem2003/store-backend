@@ -1,4 +1,4 @@
-interface NavItem {
+export interface NavItem {
     text: string;
     icon?: React.ReactNode;
     submodule?: string[];
@@ -8,6 +8,6 @@ interface NavItem {
 export interface NavListsProp {
     title?: string
     list?: NavItem[]
-    selected: string
+    selected?: string
     handleListBtn?: (value:string) => void
 }
