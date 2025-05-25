@@ -2,6 +2,7 @@
 import { useNavigate } from "react-router-dom";
 import usePopoverAnchor from "../../../hooks/usePopoverAnchor";
 import useLoginForm from "../../../hooks/useLoginForm";
+import { useTranslation } from "react-i18next";
 
 // components
 import {
@@ -26,10 +27,11 @@ import { headerLogoStyle, headerStyle, headerInfoAreaStyle } from "./headerStyle
 
 const Header = () => {
 
+    const { t } = useTranslation()
     const { anchorEl, handleClick, handleClose, open } = usePopoverAnchor()
-    
+
     const navigate = useNavigate()
-    const { handleSignOut,loading } = useLoginForm()
+    const { handleSignOut, loading } = useLoginForm()
 
     return (
         <Box>
@@ -64,7 +66,9 @@ const Header = () => {
                                     navigate('/')
                                 }
                             )}
-                        >登出</Button>
+                        >
+                            {t('sign_out')}
+                        </Button>
                     </Box>
 
                 </Toolbar>

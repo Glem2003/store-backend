@@ -2,12 +2,12 @@ export interface NavItem {
     text: string;
     icon?: React.ReactNode;
     submodule?: string[];
-    value?:string
+    value?: string
 }
 
 export interface NavListsProp {
-    title?: string
+    title?: any
     list?: NavItem[]
     selected?: string
-    handleListBtn?: (value:string) => void
+    handleListBtn?: (value: string) => void
 }

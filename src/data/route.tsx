@@ -1,8 +1,11 @@
 import { lazy } from "react"
+import { Outlet } from "react-router-dom"
 
 const Login = lazy(() => import('../pages/login'))
 const StoreBackend = lazy(() => import('../pages/storeBackend'))
 const DashBoard = lazy(() => import('../pages/dashboard'))
+const Setting = lazy(() => import('../pages/setting'))
+const SystemSetting = lazy(() => import('../pages/systemSetting'))
 
 export const webRoutes = [
     {
@@ -32,11 +35,21 @@ export const webRoutes = [
             },
             {
                 path: 'setting',
-                element: <>setting</>
-            },
-            {
-                path: '*',
-                element: <DashBoard />
+                element: <Outlet />,
+                children: [
+                    {
+                        index: true,
+                        element: <Setting />
+                    },
+                    {
+                        path: 'user',
+                        element: <>user</>
+                    },
+                    {
+                        path: 'system',
+                        element: <SystemSetting />
+                    }
+                ]
             }
         ]
     }

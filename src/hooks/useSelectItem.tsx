@@ -39,7 +39,7 @@ const useSelectItem = () => {
 
     // document title
     useEffect(() => {
-        const title = documentTitle[selectedItem]
+        const title = documentTitle[selectedItem] || 'Store Backend'
         document.title = title
     }, [selectedItem])
 

@@ -1,0 +1,30 @@
+[
+    {
+        "date": "Monday",
+        "sales": 8000
+    },
+    {
+        "date": "Tuesday",
+        "sales": 6000
+    },
+    {
+        "date": "Wednesday",
+        "sales": 7200
+    },
+    {
+        "date": "Thursday",
+        "sales": 9800
+    },
+    {
+        "date": "Friday",
+        "sales": 11000
+    },
+    {
+        "date": "Saturday",
+        "sales": 7000
+    },
+    {
+        "date": "Sunday",
+        "sales": 6400
+    }
+]

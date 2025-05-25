@@ -15,7 +15,12 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 // type
 import { NavListsProp } from "./navList.type";
 
+// hooks
+import { useTranslation } from "react-i18next";
+
 const NavList: React.FC<NavListsProp> = (props) => {
+
+    const { t } = useTranslation()
 
     const {
         title,
@@ -29,7 +34,7 @@ const NavList: React.FC<NavListsProp> = (props) => {
             component="nav"
             subheader={
                 <ListSubheader component="div">
-                    {title}
+                    {t(title)}
                 </ListSubheader>
             }
             sx={{ width: '100vw' }}
@@ -44,7 +49,7 @@ const NavList: React.FC<NavListsProp> = (props) => {
                             <ListItemIcon>
                                 {icon}
                             </ListItemIcon>
-                            <ListItemText primary={text} />
+                            <ListItemText primary={t(text)} />
                             {submodule && (selected === value ? <ExpandLessIcon /> : <ExpandMoreIcon />)}
                         </ListItemButton>
                         {submodule &&

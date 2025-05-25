@@ -7,36 +7,36 @@ import SettingsTwoToneIcon from '@mui/icons-material/SettingsTwoTone';
 
 export const navSlideConfig = {
     "store-ops": {
-        title: "商店營運模組",
+        title: "store_operation_module",
         list: [
             {
                 icon: <HomeFilledIcon />,
-                text: '首頁',
+                text: 'dashboard',
                 value: 'store-ops-home'
             },
             {
                 icon: <LocalOfferTwoToneIcon />,
-                text: '商品管理',
+                text: 'product_management',
                 value: 'store-ops-products'
             },
             {
                 icon: <InventoryTwoToneIcon />,
-                text: '訂單管理',
+                text: 'order_management',
                 value: 'store-ops-orders'
             },
             {
                 icon: <SupervisorAccountTwoToneIcon />,
-                text: '顧客管理',
+                text: 'customer_management',
                 value: "store-ops-customers"
             }
         ]
     },
     "setting-ops": {
-        title: "設定模組",
+        title: "setting_module",
         list: [
             {
                 icon: <SettingsTwoToneIcon />,
-                text: '設定',
+                text: 'settings',
                 value: 'setting-ops-setting'
             }
         ]

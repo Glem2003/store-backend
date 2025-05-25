@@ -9,6 +9,7 @@ import Slide from "../components/storeBackend/slide/slide";
 import Main from "../components/storeBackend/main/main";
 
 // components
+import { Box } from "@mui/material";
 import Header from "../components/storeBackend/header/header";
 
 const StoreBackend = () => {
@@ -35,7 +36,9 @@ const StoreBackend = () => {
             }
             main={
                 <Main>
-                    <Outlet />
+                    <Box padding={3}>
+                        <Outlet />
+                    </Box>
                 </Main>
             }
         />
