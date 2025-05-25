@@ -13,16 +13,16 @@ export const SummaryData = () => {
 
     return [
         {
-            title: '總銷售額',
+            title: 'total_sales_amount',
             span: '$',
             value: data?.totalSales
         },
         {
-            title: '訂單數量',
+            title: 'order_quantity',
             value: data?.totalOrders
         },
         {
-            title: '會員數量',
+            title: 'member_quantity',
             value: data?.totalCustomers
         },
     ]

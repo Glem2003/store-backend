@@ -10,5 +10,13 @@
     "customer_management": "顧客管理",
     "settings": "設定",
     "store_operation_module": "商店營運模組",
-    "setting_module": "設定模組"
+    "setting_module": "設定模組",
+    "weekly": "每週",
+    "monthly": "每月",
+    "yearly": "每年",
+    "sales_Trend": "銷售趨勢",
+    "total_sales_amount": "總銷售額",
+    "order_quantity": "訂單數量",
+    "member_quantity": "會員數量",
+    "notification": "通知"
 }

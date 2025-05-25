@@ -5,7 +5,7 @@
     },
     {
         "date": "February",
-        "sales": 28000
+        "sales": 78000
     },
     {
         "date": "March",
@@ -29,11 +29,11 @@
     },
     {
         "date": "August",
-        "sales": 40000
+        "sales": 48000
     },
     {
         "date": "September",
-        "sales": 45000
+        "sales": 35000
     },
     {
         "date": "October",
@@ -41,10 +41,10 @@
     },
     {
         "date": "November",
-        "sales": 43000
+        "sales": 93000
     },
     {
         "date": "December",
-        "sales": 49000
+        "sales": 79500
     }
 ]

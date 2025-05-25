@@ -16,19 +16,14 @@ import {
 } from "@mui/material"
 
 // type
-interface ResponsiveChartProps {
-    title?: string
-    xAxis: any
-    series: any
-    dataset?: any
-}
+import { ResponsiveChartProps } from './ResponsiveChart.type'
 
 const ResponsiveChart: React.FC<ResponsiveChartProps> = (props) => {
 
-    const { title, xAxis, series, dataset } = props
+    const { title, xAxis, series, dataset, sx } = props
 
     return (
-        <Box sx={{ height: 500, width: '100%' }}>
+        <Box sx={{ height: 500, minWidth: 600 }}>
             {title && (
                 <Typography variant="h6">
                     {title}
@@ -38,6 +33,7 @@ const ResponsiveChart: React.FC<ResponsiveChartProps> = (props) => {
                 xAxis={xAxis}
                 series={series}
                 dataset={dataset}
+                sx={sx}
             >
                 <LinePlot />
                 <MarkPlot />

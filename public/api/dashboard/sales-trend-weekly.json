@@ -1,30 +1,30 @@
 [
     {
         "date": "Monday",
-        "sales": 8000
+        "sales": 6630
     },
     {
         "date": "Tuesday",
-        "sales": 6000
+        "sales": 3020
     },
     {
         "date": "Wednesday",
-        "sales": 7200
+        "sales": 7800
     },
     {
         "date": "Thursday",
-        "sales": 9800
+        "sales": 9840
     },
     {
         "date": "Friday",
-        "sales": 11000
+        "sales": 12000
     },
     {
         "date": "Saturday",
-        "sales": 7000
+        "sales": 4000
     },
     {
         "date": "Sunday",
-        "sales": 6400
+        "sales": 9400
     }
 ]
