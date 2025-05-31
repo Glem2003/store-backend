@@ -1,0 +1,1 @@
+export type DateRange = 'weekly' | 'month' | 'yearly'
