@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/768.21888039.chunk.js","mappings":"wJAAA,MAMA,EANkBA,KAEVC,EAAAA,EAAAA,KAAAC,EAAAA,SAAA,CAAAC,SAAE,e","sources":["pages/customers.tsx"],"sourcesContent":["const Customers = () => {\r\n    return (\r\n        <>coming soon</>\r\n    )\r\n}\r\n\r\nexport default Customers"],"names":["Customers","_jsx","_Fragment","children"],"sourceRoot":""}

@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/216.67a60f57.chunk.js","mappings":"wJAAA,MAMA,EANcA,KAENC,EAAAA,EAAAA,KAAAC,EAAAA,SAAA,CAAAC,SAAE,e","sources":["pages/orders.tsx"],"sourcesContent":["const Order = () => {\r\n    return (\r\n        <>coming soon</>\r\n    )\r\n}\r\n\r\nexport default Order"],"names":["Order","_jsx","_Fragment","children"],"sourceRoot":""}
