@@ -1,0 +1,133 @@
+{
+    "summary": {
+        "totalSales": 20267,
+        "totalOrders": 813,
+        "totalCustomers": 520
+    },
+    "salesWeekly": [
+        {
+            "date": "Monday",
+            "sales": 6630
+        },
+        {
+            "date": "Tuesday",
+            "sales": 3020
+        },
+        {
+            "date": "Wednesday",
+            "sales": 7800
+        },
+        {
+            "date": "Thursday",
+            "sales": 9840
+        },
+        {
+            "date": "Friday",
+            "sales": 12000
+        },
+        {
+            "date": "Saturday",
+            "sales": 4000
+        },
+        {
+            "date": "Sunday",
+            "sales": 9400
+        }
+    ],
+    "saleMonth": [
+        {
+            "date": "January",
+            "sales": 32000
+        },
+        {
+            "date": "February",
+            "sales": 78000
+        },
+        {
+            "date": "March",
+            "sales": 34000
+        },
+        {
+            "date": "April",
+            "sales": 39000
+        },
+        {
+            "date": "May",
+            "sales": 41000
+        },
+        {
+            "date": "June",
+            "sales": 37000
+        },
+        {
+            "date": "July",
+            "sales": 42000
+        },
+        {
+            "date": "August",
+            "sales": 48000
+        },
+        {
+            "date": "September",
+            "sales": 35000
+        },
+        {
+            "date": "October",
+            "sales": 47000
+        },
+        {
+            "date": "November",
+            "sales": 93000
+        },
+        {
+            "date": "December",
+            "sales": 79500
+        }
+    ],
+    "saleYearly": [
+        {
+            "date": "2020",
+            "sales": 221280
+        },
+        {
+            "date": "2021",
+            "sales": 625421
+        },
+        {
+            "date": "2022",
+            "sales": 386500
+        },
+        {
+            "date": "2023",
+            "sales": 498660
+        },
+        {
+            "date": "2024",
+            "sales": 520760
+        },
+        {
+            "date": "2025",
+            "sales": 135280
+        }
+    ],
+    "products": [
+        {
+            "id": 10001,
+            "name": "美國富士蘋果 -300g",
+            "price": 20,
+            "qty": 50,
+            "category": "生鮮/水果",
+            "status": true,
+            "updatedAt": "2025-01-01T10:30:00"
+        },
+        {
+            "id": 20001,
+            "name": "可樂 - 500ml",
+            "price": 79,
+            "qty": 24,
+            "category": "飲料/果汁",
+            "status": true,
+            "updatedAt": "2025-01-01T10:30:00"
+        }
+    ]
+}
