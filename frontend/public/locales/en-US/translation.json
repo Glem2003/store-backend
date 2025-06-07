@@ -26,5 +26,19 @@
     "latest_order": "Latest Order",
     "add_product": "Add Product",
     "edit_product": "Edit Product",
-    "select_image": "Select Image"
+    "select_image": "Select Image",
+    "save": "Save",
+    "reset": "Reset",
+    "cancel": "Cancel",
+    "product_status": "Product Status",
+    "active": "Active",
+    "disabled": "Disabled",
+    "product_category": "Product Category",
+    "input_or_select_category": "Input or select category",
+    "subcategory": "Subcategory",
+    "input_or_select_subcategory": "Input or select subcategory",
+    "input_product_serial_number": "Input product serial number",
+    "product_name": "Product Name",
+    "price": "Price",
+    "quantity": "Quantity"
 }

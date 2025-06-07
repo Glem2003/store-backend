@@ -5,7 +5,7 @@ import useFetchData from "../hooks/useFetchData"
 import { productsDataType } from "../types/ProductsAPI.type";
 
 // api
-import { PRODUCTS_API } from "../config";
+import { PRODUCTS_API } from "../config/apiConfig";
 
 const ProductsData = () => {
 

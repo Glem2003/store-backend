@@ -18,10 +18,9 @@ export const webRoutes = [
     {
         path: '/',
         element: <Login />,
-        index: true
     },
     {
-        path: '/store-backend',
+        path: '/backend',
         element: <StoreBackend />,
         children: [
             {
@@ -37,8 +36,12 @@ export const webRoutes = [
                         element: <Products />
                     },
                     {
-                        path: 'revision',
-                        element: <Revision />
+                        path: 'revision/:mock',
+                        element: <Revision mode="add" />
+                    },
+                    {
+                        path: 'revision/:mock/:id',
+                        element: <Revision mode="edit" />
                     }
                 ]
             },

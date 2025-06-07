@@ -9,12 +9,16 @@ i18n
     .use(initReactI18next) // 結合 React
     .init({
         debug: true,
-        fallbackLng: 'en', // 預設語言
+        fallbackLng: 'en-US', // 預設語言
         interpolation: {
             escapeValue: false, // React 已自動處理 XSS
         },
+        detection: {
+            order: ['localStorage', 'cookie', 'navigator'],
+            caches: ['localStorage'], // 儲存偵測結果，避免每次都偵測
+        },
         backend: {
-            loadPath: '/locales/{{lng}}/{{ns}}.json', // 語言檔案路徑
+            loadPath: `${process.env.PUBLIC_URL}/locales/{{lng}}/{{ns}}.json`, // 語言檔案路徑
         },
     })
 

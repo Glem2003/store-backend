@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { HashRouter, Route, Routes } from "react-router-dom"
 import { Suspense } from "react"
 
 // routes
@@ -13,15 +13,14 @@ const renderRoutes = (routes: any[]) => {
 }
 
 const AppRoute = () => {
-
     return (
-        <BrowserRouter>
+        <HashRouter>
             <Suspense fallback={<>loading...</>}>
                 <Routes>
                     {renderRoutes(webRoutes)}
                 </Routes>
             </Suspense>
-        </BrowserRouter>
+        </HashRouter>
     )
 }
 

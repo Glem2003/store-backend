@@ -2,6 +2,7 @@
   "name": "store-backend",
   "version": "0.0.4",
   "private": true,
+  "homepage": "https://glem2003.github.io/store-backend",
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
@@ -17,7 +18,7 @@
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.1",
     "axios": "^1.9.0",
-    "gh-pages": "^6.3.0",
+    "gh-pages": "^6.1.1",
     "i18next": "^21.9.2",
     "i18next-browser-languagedetector": "^6.1.5",
     "i18next-http-backend": "^3.0.2",
@@ -33,7 +34,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -58,6 +61,6 @@
     "@types/i18next": "^12.1.0",
     "@types/node": "^22.15.29",
     "ts-node": "^10.9.2",
-    "typescript": "^5.8.3"
+    "typescript": "^4.9.5"
   }
 }

@@ -76,9 +76,9 @@ const LoginCard = () => {
                                     setError,
 
                                     // susses
-                                    () => { 
+                                    () => {
                                         setAlertShow(false);
-                                        navigate('/store-backend');
+                                        navigate('/backend');
                                     }
                                 )
                             }

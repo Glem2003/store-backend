@@ -1,19 +1,19 @@
 export const pathToItemMap: Record<string, string> = {
-    '/store-backend': 'store-ops-home',
-    '/store-backend/products': 'store-ops-products',
-    '/store-backend/orders': 'store-ops-orders',
-    '/store-backend/customers': 'store-ops-customers',
-    '/store-backend/setting': 'setting-ops-setting',
-    '/store-backend/setting/user': 'setting-ops-user',
-    '/store-backend/setting/system': 'setting-ops-system'
+    '/backend': 'store-ops-home',
+    '/backend/products': 'store-ops-products',
+    '/backend/orders': 'store-ops-orders',
+    '/backend/customers': 'store-ops-customers',
+    '/backend/setting': 'setting-ops-setting',
+    '/backend/setting/user': 'setting-ops-user',
+    '/backend/setting/system': 'setting-ops-system'
 }
 
 export const itemToPathMap: Record<string, string> = {
-    'store-ops-home': '/store-backend',
-    'store-ops-products': '/store-backend/products',
-    'store-ops-orders': '/store-backend/orders',
-    'store-ops-customers': '/store-backend/customers',
-    'setting-ops-setting': '/store-backend/setting',
-    'setting-ops-user': '/store-backend/setting/user',
-    'setting-ops-system': '/store-backend/setting/system'
+    'store-ops-home': '/backend',
+    'store-ops-products': '/backend/products',
+    'store-ops-orders': '/backend/orders',
+    'store-ops-customers': '/backend/customers',
+    'setting-ops-setting': '/backend/setting',
+    'setting-ops-user': '/backend/setting/user',
+    'setting-ops-system': '/backend/setting/system'
 }

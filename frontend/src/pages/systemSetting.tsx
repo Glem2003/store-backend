@@ -13,6 +13,9 @@ import {
 import { useTranslation } from "react-i18next"
 import useLangSelect from "../hooks/useLangSelect"
 
+// data
+import { langOption } from "../data/langOption"
+
 const SystemSetting = () => {
 
     const { lang, handleChange } = useLangSelect()
@@ -39,8 +42,9 @@ const SystemSetting = () => {
                                 value={lang}
                                 onChange={handleChange}
                             >
-                                <MenuItem value={'en'}>English</MenuItem>
-                                <MenuItem value={'zh-TW'}>繁體中文</MenuItem>
+                                {langOption.map(({ value, text }) => (
+                                    <MenuItem value={value}>{text}</MenuItem>
+                                ))}
                             </Select>
                         </FormControl>
                     </CardContent>

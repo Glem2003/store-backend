@@ -14,7 +14,8 @@ export const columns: GridColDef[] = [
         ...twdPrice
     },
     { field: 'qty', headerName: '數量', type: 'number' },
-    { field: 'category', headerName: '商品分類' },
+    { field: 'mainCategory', headerName: '主分類' },
+    { field: 'subCategory', headerName: '子分類' },
     { field: 'status', headerName: '商品狀態', type: 'boolean' },
     { field: 'updatedAt', headerName: '最後更新時間', type: 'dateTime', width: 200 },
 ]

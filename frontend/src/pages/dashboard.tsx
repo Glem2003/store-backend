@@ -18,12 +18,13 @@ import { SummaryData, SalesData } from "../data/dashBoardData"
 import { quickOperationButton } from "../data/quickOperationButton";
 
 // api
-import { SALE_DATA_WEEKLY_APL, SALE_DATA_MONTH_APL, SALE_DATA_YEARLY_APL } from "../config"
+import { SALE_DATA_WEEKLY_APL, SALE_DATA_MONTH_APL, SALE_DATA_YEARLY_APL } from "../config/apiConfig"
 
 // hooks
 import { useTranslation } from "react-i18next"
 import useSelectChartDateRange from "../hooks/useSelectChartDateRange";
 import useIsMobile from "../hooks/useIsMobile";
+import { useNavigate } from "react-router-dom";
 
 // config
 import { columns as orderColumns } from "../config/dashboardOrderDataGrid";
@@ -31,6 +32,7 @@ import { columns as orderColumns } from "../config/dashboardOrderDataGrid";
 const DashBoard = () => {
 
     const { isMobile } = useIsMobile('sm')
+    const navigate = useNavigate()
 
     const { t } = useTranslation()
     const summary = SummaryData()
@@ -132,7 +134,7 @@ const DashBoard = () => {
                             key={index}
                             variant="outlined"
                             size={isMobile ? 'medium' : 'large'}
-                            href={`store-backend/${item.text}`}
+                            onClick={() => navigate(item.text)}
                         >
                             {t(item.text)}
                         </Button>

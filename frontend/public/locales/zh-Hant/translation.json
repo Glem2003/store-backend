@@ -26,5 +26,19 @@
     "latest_order": "最新訂單",
     "add_product": "新增商品",
     "edit_product": "編輯商品",
-    "select_image": "選擇圖片"
+    "select_image": "選擇圖片",
+    "save": "儲存",
+    "reset": "重置",
+    "cancel": "取消",
+    "product_status": "商品狀態",
+    "active": "啟用中",
+    "disabled": "已停用",
+    "product_category": "商品分類",
+    "input_or_select_category": "輸入或選擇分類",
+    "subcategory": "子分類",
+    "input_or_select_subcategory":"輸入或選擇子分類",
+    "input_product_serial_number":"輸入商品貨號",
+    "product_name": "商品名稱",
+    "price": "價錢",
+    "quantity": "數量"
 }

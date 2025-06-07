@@ -28,13 +28,12 @@ const Products = () => {
         }
     }
 
-    const handleAdd = () => {
-        navigate('revision')
+    const handleBtnAdd = () => {
+        navigate('revision/add')
     }
 
-    const handleEdit = (id: number) => {
-        if (id) console.log('click:' + id)
-        navigate('revision')
+    const handleBtnEdit = (id: number) => {
+        navigate(`revision/edit/${id}`)
     }
 
     return (
@@ -64,13 +63,13 @@ const Products = () => {
                         <ButtonGroup size="large" sx={{ p: 1 }}>
                             <Button
                                 disabled={rowDataId != null}
-                                onClick={handleAdd}
+                                onClick={handleBtnAdd}
                             >
                                 {t('add_product')}
                             </Button>
                             <Button
                                 disabled={!rowDataId}
-                                onClick={() => handleEdit(rowDataId || 0)}
+                                onClick={() => handleBtnEdit(rowDataId || 0)}
                             >
                                 {t('edit_product')}
                             </Button>
