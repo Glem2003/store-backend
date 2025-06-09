@@ -1,8 +1,12 @@
 // hooks
 import { useState, useEffect, useCallback } from "react"
+import { useForm } from "react-hook-form"
+import { useNavigate } from "react-router-dom"
+import { useTranslation } from "react-i18next"
 
 // type
 import { categoriesType } from "../types/categoriesType.type"
+import { productsDataType } from "../types/ProductsAPI.type"
 import uploadImageToCloudinary from "../utils/uploadImageToCloudinary"
 
 // data
@@ -13,29 +17,45 @@ import { PRODUCTS_API } from "../config/apiConfig"
 
 const useProductForm = () => {
 
-    const { data } = ProductsData()
+    const { data, error, loading } = ProductsData()
 
-    /*
-      * id: isSKU
-      * name: isProductName
-      * price: isPrice
-      * qty: isQuantity
-      * mainCategory: mainCategory
-      * subCategory: subCategory
-      * status: isActive
-      * images: imagesUrl
-      * updatedAt: new Date()
-     */
+    const { t } = useTranslation()
 
-    const [isSKU, setSKU] = useState<string>('')
-    const [isProductName, setProductName] = useState<string>('')
-    const [isPrice, setPrice] = useState<string>('0')
-    const [isQuantity, setQuantity] = useState<string>('0')
+    const {
+        register,
+        reset,
+        setValue,
+        watch,
+        control,
+        trigger,
+        setError,
+        formState: { errors }
+    } = useForm<productsDataType>({
+        mode: "onBlur",
+        defaultValues: {
+            id: "",
+            name: "",
+            price: 0,
+            qty: 0,
+            mainCategory: '',
+            subCategory: '',
+            status: false,
+            images: null
+        }
+    })
+
+    const navigate = useNavigate()
+
+    const watchedSKU = watch('id')
+    const watchName = watch('name')
+    const watchedPrice = watch('price')
+    const watchedQty = watch('qty')
+    const watchedStatus = watch('status')
+    const watchedMainCategory = watch('mainCategory')
+    const watchedSubCategory = watch('subCategory')
+    const watchedImages = watch('images')
+
     const [categoryOptions, setCategoryOptions] = useState<categoriesType>({})
-    const [mainCategory, setMainCategory] = useState<string>('')
-    const [subCategory, setSubCategory] = useState<string>('')
-    const [isActive, setActive] = useState<boolean>(true)
-    const [image, setImage] = useState<string | null>(null)
     const [imageFile, setImagesFile] = useState<File | null>(null)
 
     const convertToArray = (data: any) => {
@@ -55,14 +75,7 @@ const useProductForm = () => {
         return result
     }
 
-    const handleToggle = () => {
-        setActive(prev => !prev)
-    }
-
     const handleMainCategoryChange = (value: string) => {
-        setMainCategory(value)
-        setSubCategory('')
-
         setCategoryOptions((prev) => {
             if (!prev[value]) {
                 return {
@@ -76,92 +89,180 @@ const useProductForm = () => {
 
     const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0]
+
+        if (!file) return
+
+        const reader = new FileReader()
+        reader.onload = () => {
+            const base64 = reader.result as string
+            setValue("images", base64)
+            setImagesFile(file)
+        }
+        reader.onerror = (error) => {
+            console.log('FileReader error:', error)
+        }
+        reader.readAsDataURL(file)
         if (file) {
             setImagesFile(file)
             const reader = new FileReader()
             reader.onload = () => {
-                setImage(reader.result as string)
+                setValue("images", reader.result as string)
             }
             reader.readAsDataURL(file)
         }
     }
 
-    const handleSave = async () => {
-        try {
+    const handleAdd = async () => {
 
-            let imagesUrl = ''
-            if (imageFile) {
-                imagesUrl = await uploadImageToCloudinary(imageFile)
-            }
+        const isValid = await trigger()
 
-            const payload = {
-                id: isSKU,
-                name: isProductName,
-                price: isPrice,
-                qty: isQuantity,
-                mainCategory: mainCategory,
-                subCategory: subCategory,
-                state: isActive,
-                images: imagesUrl,
-                updatedAt: new Date()
-            }
+        if (!isValid) {
+            console.warn('表單驗證失敗，停止儲存')
+            return
+        }
 
-            await fetch(PRODUCTS_API, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
+        const res = await fetch(PRODUCTS_API)
+        const existingProducts = await res.json()
+
+        const currentSKU = watch('id')
+
+        const skuExists = existingProducts.some((item: productsDataType) => item.id === currentSKU)
+        if (skuExists) {
+            setError('id', {
+                type: 'manual',
+                message: t('sku_already_exists')
             })
-            console.log(payload)
+            return
         }
-        catch (err) {
-            console.error(err)
+
+        let imagesUrl = watch('images')
+        if (!error && imageFile) {
+            imagesUrl = await uploadImageToCloudinary(imageFile)
         }
-        finally {
-            setSKU('')
-            setProductName('')
-            setPrice('0')
-            setQuantity('0')
-            setMainCategory('')
-            setSubCategory('')
-            setActive(true)
-            setImage(null)
-            setImagesFile(null)
+
+        const payload = {
+            id: watchedSKU,
+            name: watchName,
+            price: watchedPrice,
+            qty: watchedQty,
+            mainCategory: watchedMainCategory,
+            subCategory: watchedSubCategory,
+            status: watchedStatus,
+            images: imagesUrl,
+            updatedAt: new Date()
         }
+
+        await fetch(PRODUCTS_API, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        })
+
+        console.log(payload)
+        alert('新增成功')
+
+        navigate('/backend/products')
+        reset()
+        setImagesFile(null)
+    }
+
+    const handleSave = async () => {
+
+        const isValid = await trigger()
+
+        if (!isValid) {
+            console.warn('表單驗證失敗，停止儲存')
+            return
+        }
+
+        let imagesUrl = watch('images')
+        if (!error && imageFile) {
+            imagesUrl = await uploadImageToCloudinary(imageFile)
+        }
+
+        const payload = {
+            id: watchedSKU,
+            name: watchName,
+            price: watchedPrice,
+            qty: watchedQty,
+            mainCategory: watchedMainCategory,
+            subCategory: watchedSubCategory,
+            status: watchedStatus,
+            images: imagesUrl,
+            updatedAt: new Date()
+        }
+
+        await fetch(`${PRODUCTS_API}/${watchedSKU}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        })
+
+        console.log(payload)
+
+        alert('成功')
+        navigate('/backend/products')
     }
 
     const handleReset = () => {
-        setSKU('')
-        setProductName('')
-        setPrice('0')
-        setQuantity('0')
-        setMainCategory('')
-        setSubCategory('')
-        setActive(true)
-        setImage(null)
+        reset()
         setImagesFile(null)
+    }
+
+    const handleDelete = async () => {
+
+        if (!watchedSKU) return
+
+        try {
+            const confirmDelete = window.confirm(t("are_you_sure_you_want_to_delete_this_data"))
+            if (!confirmDelete) return
+
+            const res = await fetch(`${PRODUCTS_API}/${watchedSKU}`, {
+                method: "DELETE",
+                headers: { 'Content-Type': 'application/json' }
+            })
+
+            if (!res.ok) throw new Error('刪除失敗')
+
+            alert(`SKU: ${watchedSKU} 已刪除`)
+            navigate('/backend/products')
+            reset()
+            setImagesFile(null)
+        }
+        catch (err) {
+            console.log(err)
+        }
     }
 
     const getFormDataFromId = useCallback(async (id: string) => {
         try {
             const res = await fetch(`${PRODUCTS_API}/${id}`)
             if (!res.ok) throw new Error("Https Error");
-
             const data = await res.json()
-            console.log(data.images)
 
-            setSKU(data.id)
-            setProductName(data.name)
-            setPrice(data.price)
-            setQuantity(data.qty)
-            setMainCategory(data.mainCategory)
-            setSubCategory(data.subCategory)
-            setImage(data.images)
-            setActive(data.status)
+            if (!data) return
+
+            const mappedData = {
+                id: data.id,
+                name: data.name,
+                price: Number(data.price),
+                qty: Number(data.qty),
+                mainCategory: data.mainCategory || '',
+                subCategory: data.subCategory || '',
+                status: data.status ?? false,
+                images: data.images || ''
+            }
+
+            reset(mappedData)
+
+            if (data.images) {
+                setValue("images", data.images)
+            }
+
+        } catch (err) {
+            console.error(err)
         }
-        catch (err) {
-            console.log(err)
-        }
-    }, [])
+    }, [reset, setValue])
 
     useEffect(() => {
         if (!Array.isArray(data)) return
@@ -175,31 +276,34 @@ const useProductForm = () => {
     }, [data])
 
     return {
-        isSKU,
-        isProductName,
-        isPrice,
-        isQuantity,
+        register,
+        setValue,
+        reset,
+        control,
+        errors,
+        watchedSKU,
+        watchName,
+        watchedPrice,
+        watchedQty,
+        watchedStatus,
+        watchedMainCategory,
+        watchedSubCategory,
+        watchedImages,
+
         categoryOptions,
-        mainCategory,
-        subCategory,
-        isActive,
-        image,
         imageFile,
-        setSKU,
-        setProductName,
-        setPrice,
-        setQuantity,
-        setMainCategory,
-        setSubCategory,
-        setActive,
-        setImage,
+        error,
+        loading,
+
         setImagesFile,
+
         getFormDataFromId,
-        handleToggle,
         handleMainCategoryChange,
         handleImageChange,
+        handleAdd,
         handleSave,
-        handleReset
+        handleReset,
+        handleDelete
     }
 
 }

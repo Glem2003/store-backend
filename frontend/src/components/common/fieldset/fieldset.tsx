@@ -27,7 +27,7 @@ const Fieldset: React.FC<fieldsetProps> = (props) => {
                 control={
                     <Switch
                         checked={isActive}
-                        onChange={onChange}
+                        onChange={(e) => onChange(e.target.checked)}
                     />}
                 label={isActive ? t('active') : t('disabled')}
                 labelPlacement="start"

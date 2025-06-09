@@ -1,5 +1,5 @@
 export interface fieldsetProps {
     label: string
     isActive: boolean
-    onChange: () => void
+    onChange: (value: boolean) => void
 }

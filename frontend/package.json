@@ -1,6 +1,6 @@
 {
   "name": "store-backend",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "private": true,
   "homepage": "https://glem2003.github.io/store-backend",
   "dependencies": {
@@ -24,6 +24,7 @@
     "i18next-http-backend": "^3.0.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-hook-form": "^7.57.0",
     "react-i18next": "^11.18.6",
     "react-router-dom": "^7.4.1",
     "react-scripts": "5.0.1",

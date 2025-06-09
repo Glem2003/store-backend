@@ -1,4 +1,4 @@
 export interface imagesUploadType {
-    image?: string | null
+    value?: string | null
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }

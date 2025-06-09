@@ -36,9 +36,15 @@
     "product_category": "商品分類",
     "input_or_select_category": "輸入或選擇分類",
     "subcategory": "子分類",
-    "input_or_select_subcategory":"輸入或選擇子分類",
-    "input_product_serial_number":"輸入商品貨號",
+    "input_or_select_subcategory": "輸入或選擇子分類",
+    "input_product_serial_number": "輸入商品貨號",
     "product_name": "商品名稱",
     "price": "價錢",
-    "quantity": "數量"
+    "quantity": "數量",
+    "add": "新增",
+    "delete": "刪除",
+    "this_field_is_required": "此欄位為必填",
+    "price_cannot_be_less_than_0": "價錢不能小於0",
+    "are_you_sure_you_want_to_delete_this_data": "確定要刪除此資料嗎?",
+    "sku_already_exists": "貨號已存在,請使用其他貨號"
 }

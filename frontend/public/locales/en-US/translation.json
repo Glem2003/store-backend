@@ -40,5 +40,11 @@
     "input_product_serial_number": "Input product serial number",
     "product_name": "Product Name",
     "price": "Price",
-    "quantity": "Quantity"
+    "quantity": "Quantity",
+    "add": "Add",
+    "delete": "Delete",
+    "this_field_is_required": "This field is required",
+    "price_cannot_be_less_than_0": "Price cannot be less than 0",
+    "are_you_sure_you_want_to_delete_this_data": "Are you sure you want to delete this data?",
+    "sku_already_exists": "SKU already exists, please use another SKU"
 }

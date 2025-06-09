@@ -37,11 +37,11 @@ export const webRoutes = [
                     },
                     {
                         path: 'revision/:mock',
-                        element: <Revision mode="add" />
+                        element: <Revision resource="product" mode="add" />
                     },
                     {
                         path: 'revision/:mock/:id',
-                        element: <Revision mode="edit" />
+                        element: <Revision resource="product" mode="edit" />
                     }
                 ]
             },

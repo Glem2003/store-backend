@@ -5,6 +5,7 @@ export interface productsDataType {
     qty: number,
     mainCategory: string,
     subCategory: string
-    status: string,
-    updatedAt: string
+    status: boolean,
+    updatedAt: string,
+    images: string | null
 }

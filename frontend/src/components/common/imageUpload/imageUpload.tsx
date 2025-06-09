@@ -13,7 +13,7 @@ const ImagesUpload: React.FC<imagesUploadType> = (props) => {
 
     const { t } = useTranslation()
     const { isMobile } = useIsMobile('sm')
-    const { image, onChange } = props
+    const { value, onChange } = props
 
     return (
         <Box
@@ -25,7 +25,7 @@ const ImagesUpload: React.FC<imagesUploadType> = (props) => {
 
             <Avatar
                 variant='rounded'
-                src={image || ''}
+                src={value || ''}
                 sx={{
                     minWidth: isMobile ? 60 : 120,
                     height: isMobile ? 60 : 120,

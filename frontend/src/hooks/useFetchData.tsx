@@ -21,7 +21,7 @@ function useFetchData<T>(route: string): { data: T | null; loading: boolean; err
             }
             catch (err: any) {
                 console.error(`[useFetchData] ${route}`, err)
-                setError(err.message)
+                setError(err.message) // Failed to fetch
             }
             finally {
                 setLoading(false)
