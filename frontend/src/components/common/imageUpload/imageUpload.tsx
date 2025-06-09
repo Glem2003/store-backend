@@ -3,27 +3,17 @@ import { Box, Button, Avatar } from "@mui/material"
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 
 // hooks
-import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import useIsMobile from '../../../hooks/useIsMobile';
 
-const ImagesUpload = () => {
+// type
+import { imagesUploadType } from "./imagesUpload.type";
+
+const ImagesUpload: React.FC<imagesUploadType> = (props) => {
 
     const { t } = useTranslation()
     const { isMobile } = useIsMobile('sm')
-    const [image, setImage] = useState<string | null>(null)
-
-    const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const file = e.target.files?.[0]
-        if (file) {
-            const reader = new FileReader()
-            console.log(reader)
-            reader.onload = () => {
-                setImage(reader.result as string)
-            }
-            reader.readAsDataURL(file)
-        }
-    }
+    const { value, onChange } = props
 
     return (
         <Box
@@ -35,7 +25,7 @@ const ImagesUpload = () => {
 
             <Avatar
                 variant='rounded'
-                src={image || ''}
+                src={value || ''}
                 sx={{
                     minWidth: isMobile ? 60 : 120,
                     height: isMobile ? 60 : 120,
@@ -48,7 +38,7 @@ const ImagesUpload = () => {
                 id="upload-image"
                 type="file"
                 style={{ display: 'none' }}
-                onChange={handleImageChange}
+                onChange={onChange}
             />
             <label htmlFor="upload-image">
                 <Button

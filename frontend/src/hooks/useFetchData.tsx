@@ -13,7 +13,7 @@ function useFetchData<T>(route: string): { data: T | null; loading: boolean; err
             setError(null)
 
             try {
-                const res = await fetch(`${process.env.PUBLIC_URL}${route}`)
+                const res = await fetch(`${route}`)
 
                 if (!res.ok) throw new Error(`HTTP error ${res.status}`)
                 const data: T = await res.json()
@@ -21,7 +21,7 @@ function useFetchData<T>(route: string): { data: T | null; loading: boolean; err
             }
             catch (err: any) {
                 console.error(`[useFetchData] ${route}`, err)
-                setError(err.message)
+                setError(err.message) // Failed to fetch
             }
             finally {
                 setLoading(false)

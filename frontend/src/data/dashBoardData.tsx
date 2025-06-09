@@ -8,7 +8,7 @@ import {
 } from "../types/DashboardAPI.type"
 
 // config
-import { SUMMARY_API } from "../config"
+import { SUMMARY_API } from "../config/apiConfig"
 
 export const SummaryData = () => {
 

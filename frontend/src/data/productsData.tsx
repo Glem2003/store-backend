@@ -5,11 +5,12 @@ import useFetchData from "../hooks/useFetchData"
 import { productsDataType } from "../types/ProductsAPI.type";
 
 // api
-import { PRODUCTS_API } from "../config";
+import { PRODUCTS_API } from "../config/apiConfig";
 
 const ProductsData = () => {
 
     const { data, ...rest } = useFetchData<productsDataType[]>(PRODUCTS_API)
+    const { error, loading } = useFetchData<productsDataType[]>(PRODUCTS_API)
 
     const formattedData = data?.map((item) => ({
         ...item,
@@ -18,7 +19,9 @@ const ProductsData = () => {
 
     return {
         data: formattedData,
-        ...rest
+        ...rest,
+        error,
+        loading
     }
 }
 

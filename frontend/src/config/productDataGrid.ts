@@ -7,14 +7,15 @@ import { twdPrice } from './twdPrice';
 export const paginationModel = { page: 0, pageSize: 5 };
 export const columns: GridColDef[] = [
     { field: 'id', headerName: 'SKU' },
-    { field: 'name', headerName: '商品名稱', width: 120 },
+    { field: 'name', headerName: 'Product Name', width: 120 },
     {
         field: 'price',
-        headerName:'價錢',
+        headerName: 'Price',
         ...twdPrice
     },
-    { field: 'qty', headerName: '數量', type: 'number' },
-    { field: 'category', headerName: '商品分類' },
-    { field: 'status', headerName: '商品狀態', type: 'boolean' },
-    { field: 'updatedAt', headerName: '最後更新時間', type: 'dateTime', width: 200 },
+    { field: 'qty', headerName: 'Quantity', type: 'number' },
+    { field: 'mainCategory', headerName: 'Main category' },
+    { field: 'subCategory', headerName: 'subcategory' },
+    { field: 'status', headerName: 'Product status', type: 'boolean' },
+    { field: 'updatedAt', headerName: 'Last updated', type: 'dateTime', width: 200 },
 ]

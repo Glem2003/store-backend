@@ -3,7 +3,9 @@ export interface productsDataType {
     name: string,
     price: number,
     qty: number,
-    category: string,
-    status: string,
-    updatedAt: string
+    mainCategory: string,
+    subCategory: string
+    status: boolean,
+    updatedAt: string,
+    images: string | null
 }
