@@ -89,36 +89,48 @@ const Revision: React.FC<RevisionType> = (props) => {
                     >
                         <Grid container spacing={2}>
                             <Grid size={{ xs: 12 }} >
-                                <TextField
-                                    fullWidth
-                                    variant="outlined"
-                                    label="SKU"
-                                    id="sku"
-                                    required
-                                    {...register("id", {
-                                        required: t('this_field_is_required')
-                                    })}
-                                    slotProps={{
-                                        input: {
-                                            readOnly: mode === 'edit',
-                                        }
-                                    }}
-                                    error={!!errors.id}
-                                    helperText={errors.id?.message}
-                                    placeholder={t('input_product_serial_number')}
+                                <Controller
+                                    name="id"
+                                    control={control}
+                                    rules={{ required: t('this_field_is_required') }}
+                                    render={({ field }) => (
+                                        <TextField
+                                            {...field}
+                                            fullWidth
+                                            variant="outlined"
+                                            label="SKU"
+                                            required
+                                            error={!!errors.id}
+                                            helperText={errors.id?.message}
+                                            placeholder={t('input_product_serial_number')}
+                                            slotProps={{
+                                                input: {
+                                                    readOnly: mode === 'edit',
+                                                }
+                                            }}
+                                        />
+                                    )}
                                 />
+
                             </Grid>
                             <Grid size={{ xs: 12 }}>
-                                <TextField
-                                    fullWidth
-                                    variant="outlined"
-                                    label={t('product_name')}
-                                    id="name"
-                                    required
-                                    {...register("name", { required: t('this_field_is_required') })}
-                                    error={!!errors.name}
-                                    helperText={errors.name?.message}
+                                <Controller
+                                    name="name"
+                                    control={control}
+                                    rules={{ required: t('this_field_is_required') }}
+                                    render={({ field }) => (
+                                        <TextField
+                                            {...field}
+                                            fullWidth
+                                            variant="outlined"
+                                            label={t('product_name')}
+                                            required
+                                            error={!!errors.name}
+                                            helperText={errors.name?.message}
+                                        />
+                                    )}
                                 />
+
                             </Grid>
                             <Grid size={{ xs: 12, md: 6 }}>
                                 <TextField
