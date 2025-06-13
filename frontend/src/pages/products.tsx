@@ -1,6 +1,6 @@
 // components
 import { Box, Grid, Button, ButtonGroup } from "@mui/material"
-import { DataGrid, GridEventListener } from '@mui/x-data-grid';
+import { DataGrid } from '@mui/x-data-grid';
 
 // data
 import ProductsData from "../data/productsData";
@@ -9,32 +9,15 @@ import ProductsData from "../data/productsData";
 import { columns as productColumns, paginationModel } from "../config/productDataGrid";
 
 // hooks
-import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
+import useProductForm from "../features/useProductForm";
 
 const Products = () => {
 
     const { t } = useTranslation()
     const { data } = ProductsData()
-    const navigate = useNavigate()
 
-    const [rowDataId, setRowDataId] = useState<number | null>(null)
-    const handleSelect: GridEventListener<'rowClick'> = (params) => {
-        if (params.id === rowDataId) {
-            setRowDataId(null) // Cancel
-        } else {
-            setRowDataId(params.id as number)
-        }
-    }
-
-    const handleBtnAdd = () => {
-        navigate('revision/add')
-    }
-
-    const handleBtnEdit = (id: number) => {
-        navigate(`revision/edit/${id}`)
-    }
+    const { rowDataId, handleSelect, handleBtnAdd, handleBtnEdit } = useProductForm()
 
     return (
         <>

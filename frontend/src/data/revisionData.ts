@@ -20,10 +20,10 @@ export const formConfigs: ResourceFormConfigs = {
     },
     customers: {
         add: {
-            title: '',
+            title: 'add_customers',
         },
         edit: {
-            title: ''
+            title: 'edit_customers'
         }
     }
 }

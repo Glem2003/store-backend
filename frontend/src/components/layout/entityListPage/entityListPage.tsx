@@ -4,33 +4,17 @@ import { DataGrid } from '@mui/x-data-grid';
 
 // hooks
 import { useTranslation } from "react-i18next";
-import useProductForm from "../features/useProductForm";
 
-// config
-import { columns as customersColumns, paginationModel } from "../config/customersDataGrid";
+// type
+interface EntityListPageType {
 
-// data
-const customersData = [
-    {
-        id: 1,
-        name: '王小明',
-        email: 'xiaoming@example.com',
-        phone: '0912345678',
-        status: true,
-    },
-    {
-        id: 2,
-        name: '陳美麗',
-        email: 'mei@example.com',
-        phone: '0987654321',
-        status: false,
-    }
-]
+}
 
-const Customers = () => {
+const paginationModel = { page: 0, pageSize: 5 };
+
+const EntityListPage: React.FC = (props) => {
 
     const { t } = useTranslation()
-    const { rowDataId, handleSelect, handleBtnAdd, handleBtnEdit } = useProductForm()
 
     return (
         <>
@@ -38,12 +22,11 @@ const Customers = () => {
                 <Grid sx={{ flex: 1 }} size={12}>
                     <Box sx={{ height: '100%' }}>
                         <DataGrid
-                            rows={customersData}
-                            columns={customersColumns}
+                            rows={[]}
+                            columns={[]}
                             initialState={{ pagination: { paginationModel } }}
                             pageSizeOptions={[5]}
                             showToolbar
-                            onRowClick={handleSelect}
                         />
                     </Box>
                 </Grid>
@@ -58,16 +41,12 @@ const Customers = () => {
                     >
                         <ButtonGroup size="large" sx={{ p: 1 }}>
                             <Button
-                                disabled={rowDataId != null}
-                                onClick={handleBtnAdd}
                             >
-                                {t('add_customers')}
+                                {t('add_customer')}
                             </Button>
                             <Button
-                                disabled={!rowDataId}
-                                onClick={() => handleBtnEdit(rowDataId || 0)}
                             >
-                                {t('edit_customers')}
+                                {t('edit_customer')}
                             </Button>
                         </ButtonGroup>
                     </Box>
@@ -77,4 +56,4 @@ const Customers = () => {
     )
 }
 
-export default Customers
+export default EntityListPage

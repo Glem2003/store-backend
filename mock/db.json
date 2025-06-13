@@ -120,7 +120,7 @@
       "subCategory": "水果",
       "status": true,
       "images": "https://res.cloudinary.com/ddzpuxyjr/image/upload/v1749313824/product_images/l9tjyczz5ax8ykttep9v.png",
-      "updatedAt": "2025-06-09T13:36:20.851Z"
+      "updatedAt": "2025-06-11T14:35:01.666Z"
     },
     {
       "id": "20001",
@@ -131,18 +131,18 @@
       "subCategory": "牛奶",
       "status": false,
       "images": "https://res.cloudinary.com/ddzpuxyjr/image/upload/v1749313859/product_images/r5ah6xqvmjra3imuhbky.jpg",
-      "updatedAt": "2025-06-09T14:02:21.829Z"
+      "updatedAt": "2025-06-13T12:08:42.700Z"
     },
     {
       "id": "30001",
       "name": "保溫不鏽鋼杯",
-      "price": 480,
-      "qty": 12,
+      "price": 478,
+      "qty": 16,
       "mainCategory": "日常",
       "subCategory": "水壺",
       "status": true,
       "images": "https://res.cloudinary.com/ddzpuxyjr/image/upload/v1749479982/product_images/jv41uuosbrf2jua6wnai.png",
-      "updatedAt": "2025-06-09T14:39:50.585Z"
+      "updatedAt": "2025-06-12T13:10:52.519Z"
     },
     {
       "id": "10002",
@@ -151,20 +151,20 @@
       "qty": 60,
       "mainCategory": "生鮮",
       "subCategory": "水果",
-      "status": true,
+      "status": false,
       "images": "https://res.cloudinary.com/ddzpuxyjr/image/upload/v1749480189/product_images/vpowyumfchpvlpxxb3pe.png",
-      "updatedAt": "2025-06-09T14:43:09.828Z"
+      "updatedAt": "2025-06-11T12:20:50.737Z"
     },
     {
       "id": "40001",
       "name": "美國CheeseMaster冰鎮起司",
-      "price": 160,
-      "qty": 15,
+      "price": 179,
+      "qty": 24,
       "mainCategory": "日配",
       "subCategory": "起司",
       "status": true,
       "images": "https://res.cloudinary.com/ddzpuxyjr/image/upload/v1749480469/product_images/m1pawm4bek9647xxihbq.png",
-      "updatedAt": "2025-06-09T14:47:55.915Z"
+      "updatedAt": "2025-06-13T09:34:01.663Z"
     }
   ]
 }

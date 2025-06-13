@@ -1,5 +1,5 @@
-type Resource = 'product' | 'order' | 'customers'
-type Mode = 'add' | 'edit'
+export type Resource = 'product' | 'order' | 'customers'
+export type Mode = 'add' | 'edit'
 
 export type ResourceFormConfigs = Record<Resource, Record<Mode, FormConfig>>
 
