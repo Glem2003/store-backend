@@ -46,5 +46,22 @@
     "this_field_is_required": "This field is required",
     "price_cannot_be_less_than_0": "Price cannot be less than 0",
     "are_you_sure_you_want_to_delete_this_data": "Are you sure you want to delete this data?",
-    "sku_already_exists": "SKU already exists, please use another SKU"
+    "sku_already_exists": "SKU already exists, please use another SKU",
+    "warning": "Warning",
+    "success": "Success",
+    "deleted": "Deleted",
+    "error": "Error",
+    "fail": "Fail",
+    "delete_fail": "Delete fail",
+    "form_validation_fail": "Form validation fail",
+    "operation_completed": "Operation completed",
+    "confirm": "Confirm",
+    "close": "Close",
+    "add_customers": "Add Customers",
+    "edit_customers": "Edit Customers",
+    "customer_status": "Customer Status",
+    "customer_id": "Customer ID",
+    "username": "User Name",
+    "email": "Email",
+    "phone": "Phone"
 }

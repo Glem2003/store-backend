@@ -46,5 +46,22 @@
     "this_field_is_required": "此欄位為必填",
     "price_cannot_be_less_than_0": "價錢不能小於0",
     "are_you_sure_you_want_to_delete_this_data": "確定要刪除此資料嗎?",
-    "sku_already_exists": "貨號已存在,請使用其他貨號"
+    "sku_already_exists": "貨號已存在,請使用其他貨號",
+    "warning": "警告",
+    "success": "成功",
+    "deleted": "已刪除",
+    "error": "錯誤",
+    "fail": "失敗",
+    "delete_fail": "刪除失敗",
+    "form_validation_fail": "表單驗證失敗",
+    "operation_completed": "操作完成",
+    "confirm": "確認",
+    "close": "關閉",
+    "add_customers": "新增顧客",
+    "edit_customers": "編輯顧客",
+    "customer_status": "顧客狀態",
+    "customer_id": "顧客ID",
+    "username": "用戶名",
+    "email": "電子郵件",
+    "phone": "電話"
 }
