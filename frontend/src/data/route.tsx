@@ -47,11 +47,39 @@ export const webRoutes = [
             },
             {
                 path: 'orders',
-                element: <Orders />
+                element: <Outlet />,
+                children: [
+                    {
+                        index: true,
+                        element: <Orders />
+                    },
+                    {
+                        path: 'revision/:mock',
+                        element: <Revision resource="order" mode="add" />
+                    },
+                    {
+                        path: 'revision/:mock/:id',
+                        element: <Revision resource="order" mode="edit" />
+                    }
+                ]
             },
             {
                 path: 'customers',
-                element: <Customers />
+                element: <Outlet />,
+                children: [
+                    {
+                        index: true,
+                        element: <Customers />
+                    },
+                    {
+                        path: 'revision/:mock',
+                        element: <Revision resource="customers" mode="add" />
+                    },
+                    {
+                        path: 'revision/:mock/:id',
+                        element: <Revision resource="customers" mode="edit" />
+                    }
+                ]
             },
             {
                 path: 'setting',

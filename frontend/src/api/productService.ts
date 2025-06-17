@@ -1,5 +1,5 @@
 // type
-import { productsDataType } from "../types/ProductsAPI.type"
+import { ProductsDataType } from "../types/ProductsAPI.type"
 
 // config
 const STORAGE_KEY = "mock-products"

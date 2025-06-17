@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 
-function useFetchData<T>(route: string): { data: T | null; loading: boolean; error: string | null } {
+const useFetchData = <T,>(route: string): { data: T | null; loading: boolean; error: string | null } => {
 
     const [data, setData] = useState<T | null>(null)
     const [loading, setLoading] = useState<boolean>(false)

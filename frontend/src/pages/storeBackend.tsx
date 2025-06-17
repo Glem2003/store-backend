@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 import useSelectItem from "../hooks/useSelectItem";
 
 // layout
-import StoreBackendLayout from "../components/layout/storeBackend";
+import StoreBackendLayout from "../components/layout/storeBackend/storeBackend";
 import Slide from "../components/storeBackend/slide/slide";
 import Main from "../components/storeBackend/main/main";
 

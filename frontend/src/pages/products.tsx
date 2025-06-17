@@ -1,40 +1,31 @@
 // components
 import { Box, Grid, Button, ButtonGroup } from "@mui/material"
-import { DataGrid, GridEventListener } from '@mui/x-data-grid';
-
-// data
-import ProductsData from "../data/productsData";
+import { DataGrid } from '@mui/x-data-grid';
 
 // config
 import { columns as productColumns, paginationModel } from "../config/productDataGrid";
+import { PRODUCTS_API } from "../config/apiConfig";
 
 // hooks
-import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
+import useFormatData from "../hooks/useFormatData";
+import useFormHooks from "../hooks/useFormHooks";
+
+// type
+import { ProductsDataType, FormattedProduct } from "../types/ProductsAPI.type";
 
 const Products = () => {
 
     const { t } = useTranslation()
-    const { data } = ProductsData()
-    const navigate = useNavigate()
+    const { data } = useFormatData<ProductsDataType, FormattedProduct>(
+        PRODUCTS_API,
+        item => ({
+            ...item,
+            updatedAt: new Date(item.updatedAt)
+        })
+    )
 
-    const [rowDataId, setRowDataId] = useState<number | null>(null)
-    const handleSelect: GridEventListener<'rowClick'> = (params) => {
-        if (params.id === rowDataId) {
-            setRowDataId(null) // Cancel
-        } else {
-            setRowDataId(params.id as number)
-        }
-    }
-
-    const handleBtnAdd = () => {
-        navigate('revision/add')
-    }
-
-    const handleBtnEdit = (id: number) => {
-        navigate(`revision/edit/${id}`)
-    }
+    const { rowDataId, handleSelect, handleBtnAdd, handleBtnEdit } = useFormHooks()
 
     return (
         <>
