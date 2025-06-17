@@ -2,22 +2,30 @@
 import { Box, Grid, Button, ButtonGroup } from "@mui/material"
 import { DataGrid } from '@mui/x-data-grid';
 
-// data
-import ProductsData from "../data/productsData";
-
 // config
 import { columns as productColumns, paginationModel } from "../config/productDataGrid";
+import { PRODUCTS_API } from "../config/apiConfig";
 
 // hooks
 import { useTranslation } from "react-i18next";
-import useProductForm from "../features/useProductForm";
+import useFormatData from "../hooks/useFormatData";
+import useFormHooks from "../hooks/useFormHooks";
+
+// type
+import { ProductsDataType, FormattedProduct } from "../types/ProductsAPI.type";
 
 const Products = () => {
 
     const { t } = useTranslation()
-    const { data } = ProductsData()
+    const { data } = useFormatData<ProductsDataType, FormattedProduct>(
+        PRODUCTS_API,
+        item => ({
+            ...item,
+            updatedAt: new Date(item.updatedAt)
+        })
+    )
 
-    const { rowDataId, handleSelect, handleBtnAdd, handleBtnEdit } = useProductForm()
+    const { rowDataId, handleSelect, handleBtnAdd, handleBtnEdit } = useFormHooks()
 
     return (
         <>

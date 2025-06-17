@@ -58,5 +58,10 @@
     "confirm": "Confirm",
     "close": "Close",
     "add_customers": "Add Customers",
-    "edit_customers": "Edit Customers"
+    "edit_customers": "Edit Customers",
+    "customer_status": "Customer Status",
+    "customer_id": "Customer ID",
+    "username": "User Name",
+    "email": "Email",
+    "phone": "Phone"
 }

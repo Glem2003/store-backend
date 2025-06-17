@@ -3,12 +3,12 @@ import { useState } from "react"
 
 // type
 import { UseFormSetValue } from "react-hook-form"
-import { productsDataType } from "../../types/ProductsAPI.type"
+import { ProductsDataType } from "../../types/ProductsAPI.type"
 
 const useImageHandler = ({
     setValue
 }: {
-    setValue: UseFormSetValue<productsDataType>
+    setValue: UseFormSetValue<ProductsDataType>
 }) => {
 
     const [imageFile, setImagesFile] = useState<File | null>(null)

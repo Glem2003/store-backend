@@ -4,33 +4,28 @@ import { DataGrid } from '@mui/x-data-grid';
 
 // hooks
 import { useTranslation } from "react-i18next";
-import useProductForm from "../features/useProductForm";
+import useFormatData from "../hooks/useFormatData";
+import useFormHooks from "../hooks/useFormHooks";
 
 // config
 import { columns as customersColumns, paginationModel } from "../config/customersDataGrid";
+import { CUSTOMERS_API } from "../config/apiConfig";
 
-// data
-const customersData = [
-    {
-        id: 1,
-        name: '王小明',
-        email: 'xiaoming@example.com',
-        phone: '0912345678',
-        status: true,
-    },
-    {
-        id: 2,
-        name: '陳美麗',
-        email: 'mei@example.com',
-        phone: '0987654321',
-        status: false,
-    }
-]
+// type
+import { CustomerDataType, FormattedCustomers } from "../types/CustomerApi.type";
 
 const Customers = () => {
 
     const { t } = useTranslation()
-    const { rowDataId, handleSelect, handleBtnAdd, handleBtnEdit } = useProductForm()
+    const { data } = useFormatData<CustomerDataType, FormattedCustomers>(
+        CUSTOMERS_API,
+        item => ({
+            ...item,
+            createdAt: new Date(item.createdAt)
+        })
+    )
+    
+    const { rowDataId, handleSelect, handleBtnAdd, handleBtnEdit } = useFormHooks()
 
     return (
         <>
@@ -38,10 +33,10 @@ const Customers = () => {
                 <Grid sx={{ flex: 1 }} size={12}>
                     <Box sx={{ height: '100%' }}>
                         <DataGrid
-                            rows={customersData}
+                            rows={data}
                             columns={customersColumns}
                             initialState={{ pagination: { paginationModel } }}
-                            pageSizeOptions={[5]}
+                            pageSizeOptions={[20]}
                             showToolbar
                             onRowClick={handleSelect}
                         />

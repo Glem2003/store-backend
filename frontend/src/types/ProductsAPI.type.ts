@@ -1,4 +1,4 @@
-export interface productsDataType {
+export interface ProductsDataType {
     id: string,
     name: string,
     price: number,
@@ -8,4 +8,8 @@ export interface productsDataType {
     status: boolean,
     updatedAt: string,
     images: string | null
+}
+
+export type FormattedProduct = Omit<ProductsDataType, 'updatedAt'> & {
+    updatedAt: Date
 }

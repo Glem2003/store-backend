@@ -1,19 +1,19 @@
 // type
 import { UseFormTrigger, UseFormWatch, UseFormReset, UseFormSetError } from "react-hook-form"
-import { productsDataType } from "../../types/ProductsAPI.type"
-import { loadingObject, messageDialog, showConfirmDialog } from "./useProductForm.type"
+import { ProductsDataType } from "../../types/ProductsAPI.type"
+import { loadingObject, messageDialog, showConfirmDialog } from "../../hooks/types/useMessageDialog.type"
 import type { TFunction } from "i18next"
 
 export interface useFormHandlersType {
-    reset: UseFormReset<productsDataType>
-    trigger: UseFormTrigger<productsDataType>
+    reset: UseFormReset<ProductsDataType>
+    trigger: UseFormTrigger<ProductsDataType>
     setImagesFile: React.Dispatch<React.SetStateAction<File | null>>
     setLoading: React.Dispatch<React.SetStateAction<loadingObject>>
     setMessageDialog: React.Dispatch<React.SetStateAction<messageDialog>>
-    setError: UseFormSetError<productsDataType>
+    setError: UseFormSetError<ProductsDataType>
     showConfirmDialog: (config: showConfirmDialog) => Promise<boolean>
     uploadImageToCloudinary: (file: File) => Promise<string>
-    watch: UseFormWatch<productsDataType>
+    watch: UseFormWatch<ProductsDataType>
     t: TFunction
     error: string | null
     imageFile: File | null

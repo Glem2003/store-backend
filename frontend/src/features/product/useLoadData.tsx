@@ -3,7 +3,7 @@ import { useCallback } from "react";
 import { UseFormReset, UseFormSetValue } from "react-hook-form"
 
 // type
-import { productsDataType } from "../../types/ProductsAPI.type"
+import { ProductsDataType } from "../../types/ProductsAPI.type"
 
 // API
 import { PRODUCTS_API } from "../../config/apiConfig";
@@ -12,8 +12,8 @@ const useLoadData = ({
     reset,
     setValue
 }: {
-    reset: UseFormReset<productsDataType>
-    setValue: UseFormSetValue<productsDataType>
+    reset: UseFormReset<ProductsDataType>
+    setValue: UseFormSetValue<ProductsDataType>
 }) => {
 
     const getFormDataFromId = useCallback(async (id: string) => {

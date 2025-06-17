@@ -58,5 +58,10 @@
     "confirm": "確認",
     "close": "關閉",
     "add_customers": "新增顧客",
-    "edit_customers": "編輯顧客"
+    "edit_customers": "編輯顧客",
+    "customer_status": "顧客狀態",
+    "customer_id": "顧客ID",
+    "username": "用戶名",
+    "email": "電子郵件",
+    "phone": "電話"
 }

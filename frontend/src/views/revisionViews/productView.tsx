@@ -17,7 +17,7 @@ import MessageDialog from "../../components/common/dialog/messageDialog"
 import { formConfigs } from "../../data/revisionData"
 
 // type
-import { RevisionType } from "../../types/revisionType"
+import { RevisionType } from "../../types/RevisionType"
 
 // hooks
 import { useEffect } from "react"
@@ -25,6 +25,7 @@ import { useParams } from 'react-router-dom'
 import { useTranslation } from "react-i18next"
 import useIsMobile from "../../hooks/useIsMobile"
 import useProductForm from "../../features/useProductForm"
+import useFormHooks from "../../hooks/useFormHooks"
 
 const ProductView: React.FC<RevisionType> = (props) => {
 
@@ -51,15 +52,15 @@ const ProductView: React.FC<RevisionType> = (props) => {
         handleSave,
         handleDelete,
         handleClose,
-        handleCancel,
         getFormDataFromId,
         handleImageChange
     } = useProductForm()
 
+    const { handleCancel } = useFormHooks()
     const mainCategories = Object.keys(categoryOptions)
 
     useEffect(() => {
-        if (id) { getFormDataFromId(id) }
+        if (id) getFormDataFromId(id)
     }, [id, getFormDataFromId])
 
     return (
@@ -232,7 +233,7 @@ const ProductView: React.FC<RevisionType> = (props) => {
                         display={isMobile ? 'flex' : 'grid'}
                         gap={isMobile ? 1 : 4}
                         pb={1}
-                        sx={{ placeContent: !isMobile ? 'center' : 'space-between' }}
+                        sx={{ placeContent: !isMobile ? 'flex-start' : 'space-between' }}
                     >
                         <Grid order={isMobile ? 2 : 1}>
                             <Controller

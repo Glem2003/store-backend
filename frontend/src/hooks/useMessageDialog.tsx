@@ -1,5 +1,5 @@
 // type
-import { messageDialog, showConfirmDialog } from "./useProductForm.type"
+import { messageDialog, showConfirmDialog } from "./types/useMessageDialog.type"
 
 const useMessageDialog = ({
     setMessageDialog

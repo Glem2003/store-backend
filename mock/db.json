@@ -131,7 +131,7 @@
       "subCategory": "牛奶",
       "status": false,
       "images": "https://res.cloudinary.com/ddzpuxyjr/image/upload/v1749313859/product_images/r5ah6xqvmjra3imuhbky.jpg",
-      "updatedAt": "2025-06-13T12:08:42.700Z"
+      "updatedAt": "2025-06-16T13:02:33.038Z"
     },
     {
       "id": "30001",
@@ -165,6 +165,56 @@
       "status": true,
       "images": "https://res.cloudinary.com/ddzpuxyjr/image/upload/v1749480469/product_images/m1pawm4bek9647xxihbq.png",
       "updatedAt": "2025-06-13T09:34:01.663Z"
+    }
+  ],
+  "customers": [
+    {
+      "id": "1",
+      "username": "Alice Johnson",
+      "phone": "0971234567",
+      "email": "alice.j@example.com",
+      "status": true,
+      "createdAt": "2025-06-11T14:35:01.666Z"
+    },
+    {
+      "id": "2",
+      "username": "Michael Lee",
+      "phone": "0968123456",
+      "email": "michael.lee@example.com",
+      "status": false,
+      "createdAt": "2025-06-12T09:22:15.234Z"
+    },
+    {
+      "id": "3",
+      "username": "Emma Brown",
+      "phone": "0956784321",
+      "email": "emma.brown@example.com",
+      "status": true,
+      "createdAt": "2025-06-13T16:10:45.987Z"
+    },
+    {
+      "id": "4",
+      "username": "Daniel Smith",
+      "phone": "0932123456",
+      "email": "daniel.smith@example.com",
+      "status": true,
+      "createdAt": "2025-06-14T11:05:22.102Z"
+    },
+    {
+      "id": "5",
+      "username": "Sophia Davis",
+      "phone": "0923456789",
+      "email": "sophia@example.com",
+      "status": false,
+      "createdAt": "2025-06-15T08:45:31.900Z"
+    },
+    {
+      "id": "6",
+      "username": "James Miller",
+      "phone": "0912345678",
+      "email": "james.m@example.com",
+      "status": true,
+      "createdAt": "2025-06-16T17:33:50.555Z"
     }
   ]
 }

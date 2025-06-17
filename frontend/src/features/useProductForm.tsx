@@ -3,23 +3,22 @@ import { useEffect } from "react"
 import { useForm } from "react-hook-form"
 import { useTranslation } from "react-i18next"
 import useFormHandlers from "./product/useFormHandlers"
-import useRowSelector from './product/useRowSelector'
-import useStatus from './product/useStatus'
+import useStatus from '../hooks/useStatus'
 import useLoadData from "./product/useLoadData"
-import useMessageDialog from "./product/useMessageDialog"
+import useMessageDialog from "../hooks/useMessageDialog"
 import useFormWatchers from './product/useFormWatchers'
 import useImageHandler from './product/useImageHandler'
 import useCategoryOptionsHandler from './product/useCategoryOptionsHandler'
 
 // type
-import { productsDataType } from "../types/ProductsAPI.type"
+import { ProductsDataType } from "../types/ProductsAPI.type"
 
 // utils
 import uploadImageToCloudinary from "../utils/uploadImageToCloudinary"
 import convertToArray from '../utils/convertToArray'
 
 // data
-import ProductsData from "../data/productsData";
+import ProductsData from "../hooks/productsData";
 
 const useProductForm = () => {
 
@@ -36,7 +35,7 @@ const useProductForm = () => {
         trigger,
         setError,
         formState: { errors }
-    } = useForm<productsDataType>({
+    } = useForm<ProductsDataType>({
         mode: "onBlur",
         defaultValues: {
             id: "",
@@ -63,11 +62,6 @@ const useProductForm = () => {
     const { categoryOptions, setCategoryOptions, handleMainCategoryChange } = useCategoryOptionsHandler()
     const { imageFile, setImagesFile, handleImageChange } = useImageHandler({ setValue })
 
-    const {
-        rowDataId,
-        handleSelect
-    } = useRowSelector()
-
     const { loading, setLoading, messageDialog, setMessageDialog } = useStatus()
 
     const { getFormDataFromId } = useLoadData({ reset, setValue })
@@ -75,10 +69,7 @@ const useProductForm = () => {
     const { showConfirmDialog, handleClose } = useMessageDialog({ setMessageDialog })
 
     const {
-        handleBtnAdd,
-        handleBtnEdit,
         handleReset,
-        handleCancel,
         handleSave,
         handleAdd,
         handleDelete
@@ -132,7 +123,6 @@ const useProductForm = () => {
         watchedImages,
         messageDialog,
 
-        rowDataId,
         categoryOptions,
         imageFile,
         error,
@@ -148,10 +138,6 @@ const useProductForm = () => {
         handleReset,
         handleDelete,
         handleClose,
-        handleSelect,
-        handleBtnAdd,
-        handleBtnEdit,
-        handleCancel
     }
 
 }

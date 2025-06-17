@@ -2,9 +2,9 @@
 import { UseFormWatch } from "react-hook-form"
 
 // type
-import { productsDataType } from "../../types/ProductsAPI.type"
+import { ProductsDataType } from "../../types/ProductsAPI.type"
 
-const useFormWatchers = (watch: UseFormWatch<productsDataType>) => {
+const useFormWatchers = (watch: UseFormWatch<ProductsDataType>) => {
 
     const watchedSKU = watch('id')
     const watchName = watch('name')

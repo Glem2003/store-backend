@@ -6,7 +6,7 @@ import { PRODUCTS_API } from "../../config/apiConfig"
 
 // type
 import { useFormHandlersType } from "./useFormHandlersType.type"
-import { productsDataType } from "../../types/ProductsAPI.type"
+import { ProductsDataType } from "../../types/ProductsAPI.type"
 
 const useFormHandlers = ({
     reset,
@@ -31,13 +31,10 @@ const useFormHandlers = ({
 }: useFormHandlersType) => {
     const navigate = useNavigate()
 
-    const handleBtnAdd = () => navigate('revision/add')
-    const handleBtnEdit = (id: number) => navigate(`revision/edit/${id}`)
     const handleReset = () => {
         reset()
         setImagesFile(null)
     }
-    const handleCancel = () => navigate(-1)
 
     const handleSave = async () => {
         setLoading((prev) => ({ ...prev, save: true }))
@@ -111,7 +108,7 @@ const useFormHandlers = ({
 
         const currentSKU = watch('id')
 
-        const skuExists = existingProducts.some((item: productsDataType) => item.id === currentSKU)
+        const skuExists = existingProducts.some((item: ProductsDataType) => item.id === currentSKU)
         if (skuExists) {
             setError('id', {
                 type: 'manual',
@@ -194,7 +191,7 @@ const useFormHandlers = ({
                 type: 'success',
                 onConfirm() {
                     setLoading((prev) => ({ ...prev, delete: false }))
-                    navigate('/backend/products')
+                    navigate(-1)
                 }
             })
 
@@ -211,10 +208,7 @@ const useFormHandlers = ({
     }
 
     return {
-        handleBtnAdd,
-        handleBtnEdit,
         handleReset,
-        handleCancel,
         handleSave,
         handleAdd,
         handleDelete

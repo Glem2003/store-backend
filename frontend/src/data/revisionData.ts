@@ -1,5 +1,5 @@
 // type
-import { ResourceFormConfigs } from "../types/revisionType"
+import { ResourceFormConfigs } from "../types/RevisionType"
 
 export const formConfigs: ResourceFormConfigs = {
     product: {

@@ -1,6 +1,6 @@
 // hooks
 import useProductForm from "../features/useProductForm"
-import useCustomers from "../features/useCustomers"
+import useCustomersForm from "../features/useCustomersForm"
 
 // types
 import { UseRevisionFormProps } from "./types/useRevisionForm.type"
@@ -8,7 +8,7 @@ import { UseRevisionFormProps } from "./types/useRevisionForm.type"
 const useRevisionForm = ({ resource, mode, id }: UseRevisionFormProps) => {
 
     const productForm = useProductForm()
-    const customerForm = useCustomers()
+    const customerForm = useCustomersForm()
 
     switch (resource) {
         case 'product':

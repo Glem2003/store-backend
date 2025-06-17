@@ -1,5 +1,5 @@
 // types
-import { Resource, Mode } from "../../types/revisionType"
+import { Resource, Mode } from "../../types/RevisionType"
 
 export interface UseRevisionFormProps {
     resource: Resource

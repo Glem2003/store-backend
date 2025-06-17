@@ -2,7 +2,7 @@
 import { useState } from "react"
 
 // type
-import { categoriesType } from "../../types/categoriesType.type"
+import { categoriesType } from "../../types/CategoriesType.type"
 
 const useCategoryOptionsHandler = () => {
 

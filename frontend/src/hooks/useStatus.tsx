@@ -2,7 +2,7 @@
 import { useState } from "react"
 
 // type
-import { loadingObject, messageDialog } from "./useProductForm.type"
+import { loadingObject, messageDialog } from "./types/useMessageDialog.type"
 
 const useStatus = () => {
 
